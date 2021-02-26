@@ -2,7 +2,8 @@
   "name": "app-name",
   "private": true,
   "scripts": {
-    "start": "MONGO_URL=mongodb://localhost:27017/{DATABASE-NAME} meteor run --settings=settings.json",
+    "start": "MONGO_URL=mongodb://localhost:27017/DATABASE-NAME meteor run --settings=settings.json",
+    "mongo-docker-start": "docker-compose -f docker/mongodb-docker-compose.yml up -d",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer"
@@ -20,8 +21,7 @@
     "mainModule": {
       "client": "client/main.js",
       "server": "server/main.js"
-    },
-    "testModule": "tests/main.js"
+    }
   },
   "devDependencies": {
     "babel-eslint": "*",
